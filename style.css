@@ -1,0 +1,43 @@
+.jumbotron{
+    background-color: #e2edff;
+    padding: 3rem;
+    overflow: hidden;
+}
+
+#projects{
+    background-color: #e2edff;
+    scroll-behavior: smooth;
+}
+section{
+    padding-top: 5rem;
+}
+.jumbotron svg{
+    width: 100%;
+}
+.jumbotron img{
+    border: 2px solid #eaeaea;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .5);
+}
+.projects .card{
+    opacity: 0;
+    transition: .8s ;
+    transform: translate(0, -40px);
+}
+.projects .card.muncul{   /* antara projek dan card titiknya di spasi tapi card dan mucul tdk memakai spasi */
+    opacity: 1;
+    transform: translate(0,0);
+}
+.pkiri, .pkanan{
+    opacity: 0;
+    transform: translate(-50px , 0) rotate(30deg);
+    transition: 1.2s;
+}
+
+.pkanan{
+    transform: translate(50px, 0) rotate(-25deg);
+}
+
+.pkiri.pmuncul, .pkanan.pmuncul{
+    opacity: 1;
+    transform: translate(0,0);
+}
