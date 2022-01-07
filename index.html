@@ -148,25 +148,37 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-8">
+
+              <div class="alert alert-warning alert-dismissible fade show bg-success myalert d-none" role="alert">
+                 <p class="text-white"> <strong class="text-white"> <i class="bi bi-emoji-smile text-white"></i> Terimakasih !</strong>  Pesan Anda Sudah Saya Terima.</p>
+                <button type="button" class="btn-close btn-light" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+
+              <form name="port-form-contact">
                 <div class="mb-3">
                     <label for="name " class="form-label fw-bold" >Nama</label>
-                    <input type="text" class="form-control" id="name" placeholder="masukan nama lengkap">
+                    <input name="namauser" type="text" class="form-control" id="name" placeholder="masukan nama lengkap">
                     <label for="email " class="form-label fw-bold" aria-describedby="email ">Email </label>
-                    <input type="email" class="form-control " id="email " placeholder="masukan Email anda ">
+                    <input name="email" type="email" class="form-control " id="email " placeholder="masukan Email anda ">
                   
                       <label for="pertanyaan " class="mt-2 mb-1  fw-bold">Masukan Pilihan</label>
-                      <select name="" id="" class="form-control">
-                        <option value="1">Web Design</option>
-                        <option value="2">web Development</option>
-                        <option value="3">Design UI/UX</option>
-                        <option value="4">Microsoft</option>
+                      <select name="pilihan" id="" class="form-control">
+                        <option value="Web Design">Web Design</option>
+                        <option value="Web Development">web Development</option>
+                        <option value="Design UI/UX">Design UI/UX</option>
+                        <option value="Microsoft">Microsoft</option>
                       </select>
                     
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label fw-bold">Pesan </label>
-                        <textarea class="form-control" id="Pesan" rows="4" placeholder="masukan pesan "></textarea>
-                        <button class="btn btn-primary">Kirim</button>
+                        <textarea name="pesanuser" class="form-control" id="Pesan" rows="4" placeholder="masukan pesan "></textarea>
+                        <button class="btn btn-primary btnkirim" type="submit">Kirim</button>
+                        <button class="btn btn-primary btnloading d-none" type="button" disabled>
+                          <span class="spinner-border spinner-border-sm text-warning" role="status" aria-hidden="true"></span>
+                          Loading...
+                        </button>
                       </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -190,6 +202,43 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/script.js"></script>
+
+    <!-- spreadsheet -->
+    
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbx0quBlXVe37BMRHMk-npUtimMslwjx9SWPBL6vpmPUA_q5Ku8zdun2wRMdhBAG659x2A/exec"
+
+  const form = document.forms['port-form-contact'];
+  const btnkirim = document.querySelector('.btnkirim');
+  const btnloading = document.querySelector('.btnloading');
+  const myalert = document.querySelector('.myalert')
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    // KETIKA TOMBOL SUBMIT DI KLIK 
+    // MUNCULKAN TOMBOL LOADING, HILANGKAN TOMBOL KIRIM
+
+    btnloading.classList.toggle('d-none');
+    btnkirim.classList.toggle('d-none')
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        console.log('Success!', response)
+        
+        // TAMPILKAN TOMBOL KIRIM HILANGKAN TOMBOL LOADING
+        btnloading.classList.toggle('d-none');
+        btnkirim.classList.toggle('d-none');
+        myalert.classList.toggle('d-none');
+        // RESET FORM NYA
+        form.reset();
+
+
+    })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
+
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
