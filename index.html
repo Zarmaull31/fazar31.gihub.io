@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,15 +13,16 @@
     <!-- boostrap icon  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     
-    <!-- javascript -->
-    
+        <!-- ANIMASI AOS   -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <title>Website Portofolio!</title>
   </head>
   <body id="home">
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="https://www.instagram.com/fazar.m177"><i class="bi bi-apple text-warning"></i> Fazar Maulana</a>
+      <a class="navbar-brand" href="https://www.instagram.com/fazar.m177" data-aos="zoom-in-down" data-aos-duration : "2000" data-aos-delay="500"><i class="bi bi-apple text-warning"></i> Fazar Maulana</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -43,14 +45,15 @@
     </div>
   </nav>
   <!-- AKHIR NAVBAR  -->
+
   
 
   <!-- JUMBOTRON -->
   <section class="jumbotron" id="jumbotron">
     <div class="jumbotron text-center">
-         <img src="image/fazar.jpeg" alt="zarmaull" class="rounded-circle mb-2 mt-3 " width="200px" height="200px">
-         <h1 class="display-4 fw-light"> Fazar Maulana</h1>
-          <p class="lead">Student | Dreamer | Web Developer</p>
+         <img src="image/fazar.jpeg" alt="zarmaull" class="rounded-circle mb-2 mt-3 " width="200px" height="200px" data-aos="flip-left" data-aos-duration = '2000'>
+         <h1 class="display-4 fw-light" data-aos-delay="100" data-aos="fade-up" data-aos-duration="700"> Fazar Maulana</h1>
+          <p class="lead" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="800">Student | Dreamer | Web Design</p>
        
         </div>
       </div>
@@ -66,10 +69,10 @@
             </div>
         </div>
         <div class="row justify-content-center fs-6 mt-5 text-center">
-            <div class="col-4">
+            <div class="col-4" data-aos="fade-right"  data-aos-duration="2000" data-aos-delay ="200"  data-aos-offset="400">
                 <p class="pkanan">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis cum hic deserunt, explicabo eius nihil minima cupiditate error eum iure.</p>
             </div>
-            <div class="col-4">
+            <div class="col-4" data-aos="fade-left" data-aos-duration="2000" data-aos-offset="400">
                 <p class="pkiri">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ullam quis amet hic, iure ut. Omnis maiores aliquam repudiandae, quaerat excepturi vero enim fugiat alias?</p>
             </div>
         </div>
@@ -156,13 +159,13 @@
 
               <form name="port-form-contact">
                 <div class="mb-3">
-                    <label for="name " class="form-label fw-bold" >Nama</label>
-                    <input name="namauser" type="text" class="form-control" id="name" placeholder="masukan nama lengkap">
-                    <label for="email " class="form-label fw-bold" aria-describedby="email ">Email </label>
-                    <input name="email" type="email" class="form-control " id="email " placeholder="masukan Email anda ">
+                    <label for="name " class="form-label fw-bold" data-aos="fade-left" data-aos-duration="800" >Nama</label>
+                    <input name="namauser" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100"  type="text" class="form-control" id="name" placeholder="masukan nama lengkap">
+                    <label for="email " class="form-label fw-bold" aria-describedby="email " data-aos="fade-up" data-aos-duration="1000">Email </label>
+                    <input name="email" type="email" class="form-control " id="email " placeholder="masukan Email anda " data-aos="fade-down" data-aos-duration="800" data-aos-delay="200">
                   
-                      <label for="pertanyaan " class="mt-2 mb-1  fw-bold">Masukan Pilihan</label>
-                      <select name="pilihan" id="" class="form-control">
+                      <label for="pertanyaan " class="mt-2 mb-1  fw-bold" data-aos="zoom-in-up" data-aos-duration="800">Masukan Pilihan</label>
+                      <select name="pilihan" id="" class="form-control" data-aos="zoom-in-down" data-aos-duration="500" data-aos-delay="200">
                         <option value="Web Design">Web Design</option>
                         <option value="Web Development">web Development</option>
                         <option value="Design UI/UX">Design UI/UX</option>
@@ -170,8 +173,8 @@
                       </select>
                     
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label fw-bold">Pesan </label>
-                        <textarea name="pesanuser" class="form-control" id="Pesan" rows="4" placeholder="masukan pesan "></textarea>
+                        <label for="exampleFormControlTextarea1" class="form-label fw-bold" data-aos="flip-left" data-aos-duration="1000">Pesan </label>
+                        <textarea name="pesanuser" class="form-control" id="Pesan" rows="4" placeholder="masukan pesan " data-aos="flip-right " data-aos-delay="300 " data-aos-duration="1000"></textarea>
                         <button class="btn btn-primary btnkirim" type="submit">Kirim</button>
                         <button class="btn btn-primary btnloading d-none" type="button" disabled>
                           <span class="spinner-border spinner-border-sm text-warning" role="status" aria-hidden="true"></span>
@@ -188,7 +191,6 @@
       </svg>
 </section>
 <!-- AKHIR KONTAK  -->
-
 
 <!-- footter -->
 <footer class="bg-primary text-white text-center">
@@ -237,6 +239,14 @@
       .catch(error => console.error('Error!', error.message))
   })
 </script>
+
+<!-- ANIMASI AOS JAVA SCRIPT   -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init(
+    
+    );
+  </script>
 
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
